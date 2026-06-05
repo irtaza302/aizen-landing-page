@@ -88,16 +88,16 @@ export default function AnimatedTerminal() {
         await sleep(2000);
         pushHistory(
           <div key="aether1" className="text-primary-fixed-dim whitespace-normal mb-2">
-            <span className="text-primary font-bold">AETHER:</span> Invoking <span className="underline decoration-secondary underline-offset-2">grep_search</span> for "layout"...
+            <span className="text-primary font-bold">AETHER:</span> Invoking <span className="underline decoration-secondary underline-offset-2">grep_search</span> for &quot;layout&quot;...
           </div>
         );
 
         await sleep(800);
         pushHistory(
           <div key="grep" className="bg-surface-container border border-border-muted rounded p-3 mb-4 font-mono text-xs sm:text-sm text-text-dim animate-[fadeIn_0.3s_ease-out_forwards]">
-            <div className="text-secondary mb-1">$ grep_search "layout"</div>
+            <div className="text-secondary mb-1">$ grep_search &quot;layout&quot;</div>
             app/layout.tsx:1: export default function RootLayout()<br/>
-            app/page.tsx:12: className="layout-container"
+            app/page.tsx:12: className=&quot;layout-container&quot;
           </div>
         );
 
@@ -113,10 +113,10 @@ export default function AnimatedTerminal() {
         pushHistory(
           <div key="diff" className="bg-surface-container border border-border-muted rounded p-3 mb-4 font-mono text-xs sm:text-sm animate-[fadeIn_0.3s_ease-out_forwards]">
             <div className="text-secondary mb-1">[DIFF] app/layout.tsx</div>
-            <div className="text-error bg-error/10 px-1">- &lt;html lang="en"&gt;</div>
-            <div className="text-tertiary bg-tertiary/10 px-1">+ &lt;html lang="en" suppressHydrationWarning&gt;</div>
-            <div className="text-tertiary bg-tertiary/10 px-1">+   &lt;body className="bg-background text-foreground"&gt;</div>
-            <div className="text-tertiary bg-tertiary/10 px-1">+     &lt;ThemeProvider attribute="class" defaultTheme="system"&gt;</div>
+            <div className="text-error bg-error/10 px-1">- &lt;html lang=&quot;en&quot;&gt;</div>
+            <div className="text-tertiary bg-tertiary/10 px-1">+ &lt;html lang=&quot;en&quot; suppressHydrationWarning&gt;</div>
+            <div className="text-tertiary bg-tertiary/10 px-1">+   &lt;body className=&quot;bg-background text-foreground&quot;&gt;</div>
+            <div className="text-tertiary bg-tertiary/10 px-1">+     &lt;ThemeProvider attribute=&quot;class&quot; defaultTheme=&quot;system&quot;&gt;</div>
             <div className="text-text-dim px-1">        {"{children}"}</div>
             <div className="text-tertiary bg-tertiary/10 px-1">+     &lt;/ThemeProvider&gt;</div>
             <div className="text-error bg-error/10 px-1">-   &lt;/body&gt;</div>
@@ -161,18 +161,24 @@ export default function AnimatedTerminal() {
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto rounded-lg overflow-hidden border border-border-muted bg-surface-container-lowest shadow-2xl terminal-glow w-full">
-      <div className="bg-surface-container flex items-center px-4 py-2 border-b border-border-muted">
+    <div className="max-w-4xl mx-auto rounded-lg overflow-hidden border border-border-muted bg-surface-container-lowest shadow-2xl glow-pulse w-full relative">
+      {/* CRT Scanline overlay */}
+      <div className="scanlines rounded-lg"></div>
+
+      {/* Terminal chrome */}
+      <div className="bg-surface-container flex items-center px-4 py-2.5 border-b border-border-muted relative">
         <div className="flex gap-1.5">
-          <div className="w-3 h-3 rounded-full bg-error/40"></div>
-          <div className="w-3 h-3 rounded-full bg-tertiary/40"></div>
-          <div className="w-3 h-3 rounded-full bg-secondary/40"></div>
+          <div className="w-3 h-3 rounded-full bg-error/60 hover:bg-error transition-colors"></div>
+          <div className="w-3 h-3 rounded-full bg-tertiary/60 hover:bg-tertiary transition-colors"></div>
+          <div className="w-3 h-3 rounded-full bg-secondary/60 hover:bg-secondary transition-colors"></div>
         </div>
-        <div className="mx-auto font-code-sm text-code-sm text-text-dim">aether — zsh — 80x24</div>
+        <div className="mx-auto font-code-sm text-code-sm text-text-dim">aether — zsh — 80×24</div>
       </div>
+
+      {/* Terminal body */}
       <div 
         ref={terminalRef}
-        className="p-6 text-left font-code-md text-code-md h-[440px] bg-terminal-black overflow-y-auto whitespace-pre hide-scrollbar"
+        className="p-6 text-left font-code-md text-code-md h-[440px] bg-terminal-black overflow-y-auto whitespace-pre hide-scrollbar relative"
         style={{ scrollBehavior: 'smooth' }}
       >
         {history}

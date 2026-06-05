@@ -1,8 +1,10 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import HeroSection from "../components/HeroSection";
+import StatsSection from "../components/StatsSection";
 import FeaturesSection from "../components/FeaturesSection";
 import ToolsSection from "../components/ToolsSection";
+import ComparisonSection from "../components/ComparisonSection";
 import InstallationSection from "../components/InstallationSection";
 import WorkflowSection from "../components/WorkflowSection";
 import Footer from "../components/Footer";
@@ -17,8 +19,10 @@ export default function Home() {
 
       <main className="pt-24">
         <HeroSection />
+        <StatsSection />
         <FeaturesSection />
         <ToolsSection />
+        <ComparisonSection />
         <InstallationSection />
         <WorkflowSection />
       </main>
