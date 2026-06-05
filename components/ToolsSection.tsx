@@ -33,7 +33,7 @@ export default function ToolsSection() {
               Powerful Tools & Commands
             </h3>
             <p className="font-body-md text-body-md text-text-dim max-w-2xl mx-auto">
-              Aether empowers your AI with 9 built-in tools and comprehensive
+              Aizen empowers your AI with 9 built-in tools and comprehensive
               slash commands to control the environment.
             </p>
           </div>

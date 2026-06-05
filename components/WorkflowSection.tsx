@@ -11,12 +11,12 @@ const steps = [
       <>
         Simply open your terminal and type{" "}
         <code className="text-primary font-mono bg-terminal-black px-1.5 py-0.5 rounded text-sm">
-          aether
+          aizen
         </code>
         . You will be prompted to supply your OpenRouter API key on your first
         start, which is securely saved to{" "}
         <code className="text-primary font-mono bg-terminal-black px-1.5 py-0.5 rounded text-sm">
-          ~/.aether_config.json
+          ~/.aizen_config.json
         </code>
         .
       </>
@@ -31,7 +31,7 @@ const steps = [
         <code className="text-primary font-mono bg-terminal-black px-1.5 py-0.5 rounded text-sm">
           @
         </code>{" "}
-        symbol. Aether provides smart tab-completion that filters out{" "}
+        symbol. Aizen provides smart tab-completion that filters out{" "}
         <code className="text-primary font-mono bg-terminal-black px-1.5 py-0.5 rounded text-sm">
           .gitignore
         </code>
@@ -43,14 +43,14 @@ const steps = [
     number: "3",
     title: "MCP Server Integration",
     description:
-      "Aether supports Model Context Protocol (MCP). Configure custom local servers in your config to let the AI connect to local SQLite databases, explore the web, or run custom company workflows.",
+      "Aizen supports Model Context Protocol (MCP). Configure custom local servers in your config to let the AI connect to local SQLite databases, explore the web, or run custom company workflows.",
   },
   {
     number: "4",
     title: "Build and Monitor",
     description: (
       <>
-        Let Aether spin up a long-running background task while you continue
+        Let Aizen spin up a long-running background task while you continue
         talking. Read-only commands execute automatically, while destructive
         commands always require your explicit confirmation (unless you enable{" "}
         <code className="text-primary font-mono bg-terminal-black px-1.5 py-0.5 rounded text-sm">
@@ -76,7 +76,7 @@ export default function WorkflowSection() {
                 Developer Workflow
               </h2>
               <h3 className="font-headline-md text-headline-md text-on-surface">
-                How to Use Aether
+                How to Use Aizen
               </h3>
             </div>
           </FadeInOnScroll>
@@ -135,7 +135,7 @@ export default function WorkflowSection() {
               {/* Terminal-style preview */}
               <div className="inline-block bg-terminal-black border border-border-muted rounded-lg px-6 py-3 font-code-md text-code-md mb-10">
                 <span className="text-primary">$</span>{" "}
-                <span className="text-on-surface">pipx install aether-ai-cli</span>
+                <span className="text-on-surface">pipx install aizen-ai-cli</span>
               </div>
 
               <div className="block">

@@ -8,7 +8,7 @@ const navLinks = [
   { label: "Tools", href: "#tools" },
   { label: "Installation", href: "#installation" },
   { label: "Usage", href: "#usage" },
-  { label: "GitHub", href: "https://github.com/irtaza302/aether-agent", external: true },
+  { label: "GitHub", href: "https://github.com/irtaza302/aizen-agent", external: true },
 ];
 
 export default function NavBar() {
@@ -47,7 +47,7 @@ export default function NavBar() {
           >
             terminal
           </span>
-          Aether AI
+          Aizen AI
         </div>
 
         {/* Desktop links */}

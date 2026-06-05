@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aether AI | Your Terminal, Reimagined",
+  title: "Aizen AI | Your Terminal, Reimagined",
   description:
     "A sleek, intelligent AI agent that lives in your CLI. Context awareness, tool integration, and sub-millisecond streaming powered by OpenRouter.",
   keywords: [
@@ -22,23 +22,23 @@ export const metadata: Metadata = {
     "terminal AI",
     "code editor",
     "AI agent",
-    "Aether",
+    "Aizen",
     "OpenRouter",
     "MCP",
   ],
   authors: [{ name: "Irtaza Barlas" }],
   openGraph: {
-    title: "Aether AI | Your Terminal, Reimagined",
+    title: "Aizen AI | Your Terminal, Reimagined",
     description:
       "The professional-grade AI coding assistant that lives in your CLI. Reads your code, edits files surgically, runs commands safely.",
-    url: "https://aether-ai.dev",
-    siteName: "Aether AI",
+    url: "https://aizen-ai.dev",
+    siteName: "Aizen AI",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aether AI | Your Terminal, Reimagined",
+    title: "Aizen AI | Your Terminal, Reimagined",
     description:
       "The professional-grade AI coding assistant that lives in your CLI.",
   },
@@ -75,12 +75,12 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              name: "Aether AI",
+              name: "Aizen AI",
               applicationCategory: "DeveloperApplication",
               operatingSystem: "macOS, Linux, Windows",
               description:
                 "A professional-grade AI coding assistant that runs directly in your terminal.",
-              url: "https://github.com/irtaza302/aether-agent",
+              url: "https://github.com/irtaza302/aizen-agent",
               author: {
                 "@type": "Person",
                 name: "Irtaza Barlas",

@@ -35,7 +35,7 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="font-headline-lg text-headline-lg md:text-[64px] md:leading-none mb-6 tracking-tight"
         >
-          Aether: Your Terminal,{" "}
+          Aizen: Your Terminal,{" "}
           <span className="gradient-text italic">Reimagined.</span>
         </motion.h1>
 
@@ -65,7 +65,7 @@ export default function HeroSection() {
             Get Started
           </a>
           <a
-            href="https://github.com/irtaza302/aether-agent"
+            href="https://github.com/irtaza302/aizen-agent"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-transparent text-primary px-8 py-3 font-code-md text-code-md font-bold border border-border-muted hover:border-primary hover:bg-primary/5 transition-all active:scale-95 text-center flex items-center gap-2"

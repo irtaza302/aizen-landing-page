@@ -1,6 +1,6 @@
-# Aether AI Agent 🚀
+# Aizen AI Agent 🚀
 
-Aether is a sleek, intelligent AI coding assistant that runs directly in your terminal. It helps you code, reads your files, and can run commands for you—all from a beautifully designed CLI interface.
+Aizen is a sleek, intelligent AI coding assistant that runs directly in your terminal. It helps you code, reads your files, and can run commands for you—all from a beautifully designed CLI interface.
 
 ## Features
 - **Sleek CLI:** A beautifully styled terminal UI with custom ASCII art and magenta accents.
@@ -10,31 +10,31 @@ Aether is a sleek, intelligent AI coding assistant that runs directly in your te
 
 ## Installation
 
-You can install Aether via multiple package managers:
+You can install Aizen via multiple package managers:
 
 ### 1. Python (pip / pipx) Recommended
 ```bash
-pipx install aether-cli
+pipx install aizen-cli
 # Or using pip:
-pip install aether-cli
+pip install aizen-cli
 ```
 
 ### 2. NPM (Node.js)
 ```bash
-npm install -g aether-ai-cli
+npm install -g aizen-ai-cli
 ```
 
 ### 3. Homebrew (macOS)
 ```bash
-brew tap irtaza302/aether-agent
-brew install aether
+brew tap irtaza302/aizen-agent
+brew install aizen
 ```
 
 ### 4. Local Installation
 Clone the repository and run the install script:
 ```bash
-git clone https://github.com/irtaza302/aether-agent.git
-cd aether-agent
+git clone https://github.com/irtaza302/aizen-agent.git
+cd aizen-agent
 ./install.sh
 ```
 
@@ -42,17 +42,17 @@ cd aether-agent
 
 Simply run:
 ```bash
-aether
+aizen
 ```
 
-When you first launch Aether, you'll be prompted to provide your [OpenRouter API key](https://openrouter.ai/keys).
+When you first launch Aizen, you'll be prompted to provide your [OpenRouter API key](https://openrouter.ai/keys).
 
 ### Attaching Files
-Type `@` followed by a filename to give Aether context about your code:
+Type `@` followed by a filename to give Aizen context about your code:
 ```
 👤 You
-❯ Can you refactor @aether.py to use async?
+❯ Can you refactor @aizen.py to use async?
 ```
 
 ## Publishing & Development
-If you are developing Aether, you can use the included `publish.sh` script to build and publish across all platforms (PyPI, NPM, and PyInstaller binaries).
+If you are developing Aizen, you can use the included `publish.sh` script to build and publish across all platforms (PyPI, NPM, and PyInstaller binaries).

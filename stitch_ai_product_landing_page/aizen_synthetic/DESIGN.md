@@ -1,5 +1,5 @@
 ---
-name: Aether Synthetic
+name: Aizen Synthetic
 colors:
   surface: '#131314'
   surface-dim: '#131314'

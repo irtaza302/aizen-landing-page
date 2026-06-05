@@ -16,15 +16,15 @@ const features = [
 ];
 
 const comparisonData = [
-  { feature: "Runs 100% in Terminal", aether: true, others: "Partial" },
-  { feature: "MCP Server Support", aether: true, others: false },
-  { feature: "Async Background Tasks", aether: true, others: false },
-  { feature: "Session Persistence (SQLite)", aether: true, others: false },
-  { feature: "Live Cost Tracking", aether: true, others: "Partial" },
-  { feature: "Surgical File Edits with Diff", aether: true, others: "Partial" },
-  { feature: "File Backup & Undo", aether: true, others: false },
-  { feature: "Project-Specific Rules", aether: true, others: true },
-  { feature: "Open Source", aether: true, others: "Partial" },
+  { feature: "Runs 100% in Terminal", aizen: true, others: "Partial" },
+  { feature: "MCP Server Support", aizen: true, others: false },
+  { feature: "Async Background Tasks", aizen: true, others: false },
+  { feature: "Session Persistence (SQLite)", aizen: true, others: false },
+  { feature: "Live Cost Tracking", aizen: true, others: "Partial" },
+  { feature: "Surgical File Edits with Diff", aizen: true, others: "Partial" },
+  { feature: "File Backup & Undo", aizen: true, others: false },
+  { feature: "Project-Specific Rules", aizen: true, others: true },
+  { feature: "Open Source", aizen: true, others: "Partial" },
 ];
 
 export default function ComparisonSection() {
@@ -34,13 +34,13 @@ export default function ComparisonSection() {
         <FadeInOnScroll>
           <div className="text-center mb-16">
             <h2 className="font-label-caps text-label-caps text-primary mb-2 uppercase">
-              Why Aether
+              Why Aizen
             </h2>
             <h3 className="font-headline-md text-headline-md text-on-surface mb-4">
               Built Different from the Ground Up
             </h3>
             <p className="font-body-md text-body-md text-text-dim max-w-2xl mx-auto">
-              Aether isn&apos;t another wrapper around an API. It&apos;s a purpose-built CLI agent with features that professional developers actually need.
+              Aizen isn&apos;t another wrapper around an API. It&apos;s a purpose-built CLI agent with features that professional developers actually need.
             </p>
           </div>
         </FadeInOnScroll>
@@ -74,7 +74,7 @@ export default function ComparisonSection() {
                   <thead>
                     <tr className="border-b border-border-muted bg-surface-container/50">
                       <th className="text-left p-4 text-text-dim font-normal">Feature</th>
-                      <th className="p-4 text-primary font-bold text-center">Aether</th>
+                      <th className="p-4 text-primary font-bold text-center">Aizen</th>
                       <th className="p-4 text-text-dim font-normal text-center">Others</th>
                     </tr>
                   </thead>

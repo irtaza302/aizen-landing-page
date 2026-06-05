@@ -34,7 +34,7 @@ export default function FeaturesSection() {
                   Surgical File Editing
                 </h4>
                 <p className="font-body-md text-body-md text-text-dim max-w-md">
-                  Instead of rewriting entire files, Aether uses precise
+                  Instead of rewriting entire files, Aizen uses precise
                   search-and-replace edits with color-coded diff previews.
                   Lightning fast modifications across your codebase.
                 </p>
@@ -98,7 +98,7 @@ export default function FeaturesSection() {
                 <p className="font-body-md text-body-md text-text-dim">
                   Auto-loads{" "}
                   <code className="text-primary font-mono text-sm bg-terminal-black px-1 py-0.5 rounded">
-                    .aether_rules
+                    .aizen_rules
                   </code>{" "}
                   or{" "}
                   <code className="text-primary font-mono text-sm bg-terminal-black px-1 py-0.5 rounded">

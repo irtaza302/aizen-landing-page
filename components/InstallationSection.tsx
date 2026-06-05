@@ -7,31 +7,31 @@ const installMethods = [
   {
     key: "pip",
     label: "PYTHON (PIPX / PIP)",
-    command: "pipx install aether-ai-cli",
+    command: "pipx install aizen-ai-cli",
     display: (
       <>
-        <span className="text-primary">$</span> pipx install aether-ai-cli
+        <span className="text-primary">$</span> pipx install aizen-ai-cli
       </>
     ),
   },
   {
     key: "npm",
     label: "NODE.JS (NPM)",
-    command: "npm install -g aether-ai-cli",
+    command: "npm install -g aizen-ai-cli",
     display: (
       <>
-        <span className="text-primary">$</span> npm install -g aether-ai-cli
+        <span className="text-primary">$</span> npm install -g aizen-ai-cli
       </>
     ),
   },
   {
     key: "brew",
     label: "MACOS (HOMEBREW)",
-    command: "brew tap irtaza302/aether-agent && brew install aether",
+    command: "brew tap irtaza302/aizen-agent && brew install aizen",
     display: (
       <span className="whitespace-normal leading-relaxed">
-        <span className="text-primary">$</span> brew tap irtaza302/aether-agent
-        && brew install aether
+        <span className="text-primary">$</span> brew tap irtaza302/aizen-agent
+        && brew install aizen
       </span>
     ),
   },

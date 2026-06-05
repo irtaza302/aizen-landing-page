@@ -5,9 +5,9 @@ import { FadeInOnScroll } from "./AnimationWrapper";
 
 const footerLinks = [
   { label: "Features", href: "#features" },
-  { label: "Changelog", href: "https://github.com/irtaza302/aether-agent", external: true },
-  { label: "Security", href: "https://github.com/irtaza302/aether-agent", external: true },
-  { label: "Privacy", href: "https://github.com/irtaza302/aether-agent", external: true },
+  { label: "Changelog", href: "https://github.com/irtaza302/aizen-agent", external: true },
+  { label: "Security", href: "https://github.com/irtaza302/aizen-agent", external: true },
+  { label: "Privacy", href: "https://github.com/irtaza302/aizen-agent", external: true },
 ];
 
 export default function Footer() {
@@ -21,7 +21,7 @@ export default function Footer() {
               AETHER AI
             </div>
             <p className="font-code-sm text-code-sm text-text-dim">
-              © {new Date().getFullYear()} Aether AI. Engineered for
+              © {new Date().getFullYear()} Aizen AI. Engineered for
               performance.
             </p>
           </div>
@@ -40,7 +40,7 @@ export default function Footer() {
           <div className="flex gap-4">
             <a
               className="text-text-dim hover:text-primary hover:scale-110 transition-all duration-200"
-              href="https://github.com/irtaza302/aether-agent"
+              href="https://github.com/irtaza302/aizen-agent"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -48,7 +48,7 @@ export default function Footer() {
             </a>
             <a
               className="text-text-dim hover:text-primary hover:scale-110 transition-all duration-200"
-              href="https://github.com/irtaza302/aether-agent"
+              href="https://github.com/irtaza302/aizen-agent"
               target="_blank"
               rel="noopener noreferrer"
             >

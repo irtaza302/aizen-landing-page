@@ -50,10 +50,10 @@ export default function AnimatedTerminal() {
         await sleep(1000);
         if (isCancelled) break;
         
-        await typeCommand('aether', 80);
+        await typeCommand('aizen', 80);
         pushHistory(
           <div key="cmd1" className="mb-4">
-            <span className="text-primary">➜</span> <span className="text-secondary ml-1">~</span> <span className="text-on-surface ml-1">aether</span>
+            <span className="text-primary">➜</span> <span className="text-secondary ml-1">~</span> <span className="text-on-surface ml-1">aizen</span>
           </div>
         );
         
@@ -69,7 +69,7 @@ export default function AnimatedTerminal() {
               </pre>
             </div>
             <div className="text-on-surface-variant font-code-sm">
-              <span className="text-primary">[SYSTEM]</span> Initializing Aether AI v2.4.1...<br />
+              <span className="text-primary">[SYSTEM]</span> Initializing Aizen AI v2.4.1...<br />
               <span className="text-primary">[SYSTEM]</span> Model: anthropic/claude-3.7-sonnet<br />
               <span className="text-primary">[SYSTEM]</span> Project rules loaded from <span className="text-secondary">.cursorrules</span>
             </div>
@@ -87,7 +87,7 @@ export default function AnimatedTerminal() {
         setCurrentAction({ type: 'spinner', text: 'Analyzing workspace...' });
         await sleep(2000);
         pushHistory(
-          <div key="aether1" className="text-primary-fixed-dim whitespace-normal mb-2">
+          <div key="aizen1" className="text-primary-fixed-dim whitespace-normal mb-2">
             <span className="text-primary font-bold">AETHER:</span> Invoking <span className="underline decoration-secondary underline-offset-2">grep_search</span> for &quot;layout&quot;...
           </div>
         );
@@ -104,7 +104,7 @@ export default function AnimatedTerminal() {
         setCurrentAction({ type: 'spinner', text: 'Reading app/layout.tsx...' });
         await sleep(1500);
         pushHistory(
-          <div key="aether2" className="text-primary-fixed-dim whitespace-normal mb-2">
+          <div key="aizen2" className="text-primary-fixed-dim whitespace-normal mb-2">
             <span className="text-primary font-bold">AETHER:</span> Making surgical edits to <span className="text-on-surface">app/layout.tsx</span> to inject NextThemeProvider.
           </div>
         );
@@ -128,7 +128,7 @@ export default function AnimatedTerminal() {
         setCurrentAction({ type: 'spinner', text: 'Running background verification...' });
         await sleep(2500);
         pushHistory(
-          <div key="aether3" className="text-primary-fixed-dim whitespace-normal mb-2">
+          <div key="aizen3" className="text-primary-fixed-dim whitespace-normal mb-2">
             <span className="text-primary font-bold">AETHER:</span> Started background task <span className="text-secondary bg-surface px-1 py-0.5 rounded border border-border-muted">bg_lint_8x9</span> for \`npm run lint\`.
           </div>
         );
@@ -144,7 +144,7 @@ export default function AnimatedTerminal() {
         setCurrentAction({ type: 'spinner', text: 'Finalizing...' });
         await sleep(1000);
         pushHistory(
-          <div key="aether4" className="text-primary-fixed-dim whitespace-normal mb-4">
+          <div key="aizen4" className="text-primary-fixed-dim whitespace-normal mb-4">
             <span className="text-primary font-bold">AETHER:</span> <span className="text-tertiary">✓</span> All done! Dark mode support has been implemented safely.
           </div>
         );
@@ -172,7 +172,7 @@ export default function AnimatedTerminal() {
           <div className="w-3 h-3 rounded-full bg-tertiary/60 hover:bg-tertiary transition-colors"></div>
           <div className="w-3 h-3 rounded-full bg-secondary/60 hover:bg-secondary transition-colors"></div>
         </div>
-        <div className="mx-auto font-code-sm text-code-sm text-text-dim">aether — zsh — 80×24</div>
+        <div className="mx-auto font-code-sm text-code-sm text-text-dim">aizen — zsh — 80×24</div>
       </div>
 
       {/* Terminal body */}
