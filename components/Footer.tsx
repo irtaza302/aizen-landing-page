@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-gutter max-w-container-max mx-auto relative z-10">
           <div className="flex flex-col items-center md:items-start">
             <div className="font-label-caps text-label-caps text-primary mb-2">
-              AETHER AI
+              AIZEN AI
             </div>
             <p className="font-code-sm text-code-sm text-text-dim">
               © {new Date().getFullYear()} Aizen AI. Engineered for

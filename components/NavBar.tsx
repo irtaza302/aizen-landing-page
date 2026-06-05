@@ -41,12 +41,11 @@ export default function NavBar() {
       <div className="nav-glow-line"></div>
       <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto w-full">
         <div className="font-headline-md text-headline-md font-bold text-primary tracking-tighter flex items-center gap-2">
-          <span
-            className="material-symbols-outlined text-primary"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            terminal
-          </span>
+          <img
+            src="/logo.png"
+            alt="Aizen AI Logo"
+            className="w-8 h-8 object-contain rounded-lg"
+          />
           Aizen AI
         </div>
 

@@ -61,11 +61,11 @@ export default function AnimatedTerminal() {
           <div key="init" className="mb-6">
             <div className="text-primary mb-4 animate-[pulse_2s_ease-in-out_1]">
               <pre className="leading-tight font-mono text-xs sm:text-sm text-primary-fixed-dim">
-                {"   ___         _   _               \n" +
-                 "  / _ \\  ___  | |_| |__   ___ _ __ \n" +
-                 " / /_\\ \\/ _ \\ | __| '_ \\ / _ \\ '__|\n" +
-                 "/ /_\\\\ \\  __/ | |_| | | |  __/ |   \n" +
-                 "\\____/ \\___|  \\__|_| |_|\\___|_|   "}
+                {"    ___   _               \n" +
+                 "   /   | (_)____ ___  ____\n" +
+                 "  / /| | / /_  // _ \\/ __ \\\n" +
+                 " / ___ |/ / / //  __/ / / /\n" +
+                 "/_/  |_/_/ /___/\\___/_/ /_/ "}
               </pre>
             </div>
             <div className="text-on-surface-variant font-code-sm">
@@ -88,7 +88,7 @@ export default function AnimatedTerminal() {
         await sleep(2000);
         pushHistory(
           <div key="aizen1" className="text-primary-fixed-dim whitespace-normal mb-2">
-            <span className="text-primary font-bold">AETHER:</span> Invoking <span className="underline decoration-secondary underline-offset-2">grep_search</span> for &quot;layout&quot;...
+            <span className="text-primary font-bold">AIZEN:</span> Invoking <span className="underline decoration-secondary underline-offset-2">grep_search</span> for &quot;layout&quot;...
           </div>
         );
 
@@ -105,7 +105,7 @@ export default function AnimatedTerminal() {
         await sleep(1500);
         pushHistory(
           <div key="aizen2" className="text-primary-fixed-dim whitespace-normal mb-2">
-            <span className="text-primary font-bold">AETHER:</span> Making surgical edits to <span className="text-on-surface">app/layout.tsx</span> to inject NextThemeProvider.
+            <span className="text-primary font-bold">AIZEN:</span> Making surgical edits to <span className="text-on-surface">app/layout.tsx</span> to inject NextThemeProvider.
           </div>
         );
 
@@ -129,7 +129,7 @@ export default function AnimatedTerminal() {
         await sleep(2500);
         pushHistory(
           <div key="aizen3" className="text-primary-fixed-dim whitespace-normal mb-2">
-            <span className="text-primary font-bold">AETHER:</span> Started background task <span className="text-secondary bg-surface px-1 py-0.5 rounded border border-border-muted">bg_lint_8x9</span> for \`npm run lint\`.
+            <span className="text-primary font-bold">AIZEN:</span> Started background task <span className="text-secondary bg-surface px-1 py-0.5 rounded border border-border-muted">bg_lint_8x9</span> for \`npm run lint\`.
           </div>
         );
 
@@ -145,7 +145,7 @@ export default function AnimatedTerminal() {
         await sleep(1000);
         pushHistory(
           <div key="aizen4" className="text-primary-fixed-dim whitespace-normal mb-4">
-            <span className="text-primary font-bold">AETHER:</span> <span className="text-tertiary">✓</span> All done! Dark mode support has been implemented safely.
+            <span className="text-primary font-bold">AIZEN:</span> <span className="text-tertiary">✓</span> All done! Dark mode support has been implemented safely.
           </div>
         );
 
