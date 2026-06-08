@@ -1,4 +1,4 @@
-# Aizen AI Agent 🚀 
+# Aizen AI Agent 🚀  
 
 [![CI](https://github.com/irtaza302/aizen-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/irtaza302/aizen-agent/actions/workflows/ci.yml)
 
