@@ -1,5 +1,7 @@
 # Aizen AI Agent 🚀
 
+[![CI](https://github.com/irtaza302/aizen-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/irtaza302/aizen-agent/actions/workflows/ci.yml)
+
 A professional-grade AI coding assistant that runs directly in your terminal. Aizen reads your code, writes files with surgical precision, runs commands safely, and helps you build faster — all from a beautifully designed CLI.
 
 ## ✨ Features
@@ -33,13 +35,16 @@ Aizen has 9 built-in tools the AI can use:
 | Command | Description |
 |---------|-------------|
 | `/help` | Show all available commands |
-| `/model [name]` | View or switch the active AI model |
+| `/model [name]` | View or switch the active AI model (saves as default) |
 | `/clear` | Clear conversation history |
+| `/drop` | Drop attached files/URLs/commands from history to save tokens |
 | `/save [name]` | Save current conversation to SQLite database |
 | `/load [name]` | Load a previously saved conversation |
 | `/checkpoint [name]` | Save a conversation snapshot to memory |
 | `/restore [name]` | Restore a saved conversation checkpoint |
 | `/usage` | Show token usage, estimated session cost (USD), and statistics |
+| `/commit` | Auto-generate a commit message for staged/unstaged changes and commit them |
+| `/diff` | Show all uncommitted changes (staged, unstaged, untracked) |
 | `/compact` | Summarize older messages using AI (fallback to text-summarization) to save tokens |
 | `/undo` | Undo the last file modification |
 | `/retry` | Retry the last message |
@@ -82,7 +87,7 @@ npm install -g aizen-ai-cli
 
 ### 3. Homebrew (macOS)
 ```bash
-brew tap irtaza302/aizen-agent
+brew tap irtaza302/aizen
 brew install aizen
 ```
 
@@ -113,13 +118,21 @@ On first launch, you'll be prompted for your [OpenRouter API key](https://openro
 | `--yolo` | Auto-approve all file writes and command executions |
 | `--verbose` | Enable verbose logging output to the console |
 
-### Attaching Files
+### Attaching Context (`@`)
 
-Type `@` followed by a filename to give Aizen context. Autocomplete filters out `.gitignore`d files:
+Type `@` followed by a filename, directory, web URL, or command to give Aizen context. Autocomplete filters out `.gitignore`d files:
+
+- **Files:** `@aizen.py` attaches the file contents.
+- **Directories:** `@tests/` generates and attaches a visual directory tree respecting `.gitignore`.
+- **URLs:** `@https://docs.python.org/...` fetches the webpage, converts it to markdown, and attaches it.
+- **Commands:** `@cmd:"pytest"` or `@cmd:ls` securely runs the command in the background and injects its `stdout` and `stderr` directly into the prompt.
 
 ```
 👤 You
 ❯ Can you refactor @aizen.py to use async?
+
+👤 You
+❯ Explain this output: @cmd:"npm run build"
 ```
 
 ### Multi-line Input

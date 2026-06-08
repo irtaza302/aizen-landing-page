@@ -6,7 +6,7 @@ import { CountUp, StaggerContainer, StaggerItem } from "./AnimationWrapper";
 const stats = [
   { label: "GitHub Stars", value: 250, suffix: "+", icon: "star" },
   { label: "Built-in Tools", value: 9, suffix: "", icon: "build" },
-  { label: "Slash Commands", value: 15, suffix: "+", icon: "keyboard_command_key" },
+  { label: "Slash Commands", value: 18, suffix: "", icon: "keyboard_command_key" },
   { label: "Install Methods", value: 4, suffix: "", icon: "download" },
 ];
 

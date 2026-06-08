@@ -16,22 +16,37 @@ const installMethods = [
   },
   {
     key: "npm",
-    label: "NODE.JS (NPM)",
-    command: "npm install -g aizen-ai-cli",
+    label: "NODE.JS (NPM / PNPM)",
+    command: "npm install -g aizen-ai-cli\n# or\npnpm install -g aizen-ai-cli",
     display: (
       <>
-        <span className="text-primary">$</span> npm install -g aizen-ai-cli
+        <span className="text-primary">$</span> npm install -g aizen-ai-cli<br />
+        <span className="text-text-dim text-xs mt-2 mb-2 block"># or</span>
+        <span className="text-primary">$</span> pnpm install -g aizen-ai-cli
       </>
     ),
   },
   {
     key: "brew",
     label: "MACOS (HOMEBREW)",
-    command: "brew tap irtaza302/aizen-agent && brew install aizen",
+    command: "brew tap irtaza302/aizen && brew install aizen",
     display: (
       <span className="whitespace-normal leading-relaxed">
-        <span className="text-primary">$</span> brew tap irtaza302/aizen-agent
+        <span className="text-primary">$</span> brew tap irtaza302/aizen
         && brew install aizen
+      </span>
+    ),
+  },
+  {
+    key: "local",
+    label: "LOCAL DEVELOPMENT",
+    command: "git clone https://github.com/irtaza302/aizen-agent.git && cd aizen-agent && pip install -r requirements.txt && python aizen.py",
+    display: (
+      <span className="whitespace-normal leading-relaxed text-xs block font-mono text-left">
+        <span className="text-primary">$</span> git clone https://github.com/irtaza302/aizen-agent.git<br />
+        <span className="text-primary">$</span> cd aizen-agent<br />
+        <span className="text-primary">$</span> pip install -r requirements.txt<br />
+        <span className="text-primary">$</span> python aizen.py
       </span>
     ),
   },
@@ -42,6 +57,7 @@ export default function InstallationSection() {
     pip: false,
     npm: false,
     brew: false,
+    local: false,
   });
 
   const copyToClipboard = (key: string, text: string) => {
@@ -70,7 +86,7 @@ export default function InstallationSection() {
           </div>
         </FadeInOnScroll>
 
-        <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-gutter" staggerDelay={0.12}>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter" staggerDelay={0.12}>
           {installMethods.map((method) => (
             <StaggerItem key={method.key}>
               <div className="glass-card gradient-border rounded-lg group overflow-hidden">
