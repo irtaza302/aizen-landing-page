@@ -60,7 +60,7 @@ export default function AnimatedTerminal() {
         pushHistory(
           <div key="init" className="mb-6">
             <div className="text-primary mb-4 animate-[pulse_2s_ease-in-out_1]">
-              <pre className="leading-tight font-mono text-xs sm:text-sm text-primary-fixed-dim">
+              <pre className="leading-tight font-mono text-[8px] sm:text-xs md:text-sm text-primary-fixed-dim">
                 {" █████╗ ██╗███████╗███████╗███╗   ██╗\n" +
                  "██╔══██╗██║╚══███╔╝██╔════╝████╗  ██║\n" +
                  "███████║██║  ███╔╝ █████╗  ██╔██╗ ██║\n" +
@@ -179,7 +179,7 @@ export default function AnimatedTerminal() {
       {/* Terminal body */}
       <div 
         ref={terminalRef}
-        className="p-6 text-left font-code-md text-code-md h-[440px] bg-terminal-black overflow-y-auto whitespace-pre hide-scrollbar relative"
+        className="p-4 sm:p-6 text-left font-code-md text-code-md h-[360px] sm:h-[440px] bg-terminal-black overflow-auto whitespace-pre hide-scrollbar relative"
         style={{ scrollBehavior: 'smooth' }}
       >
         {history}

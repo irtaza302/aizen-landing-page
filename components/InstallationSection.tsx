@@ -111,7 +111,7 @@ export default function InstallationSection() {
                     )}
                   </button>
                 </div>
-                <div className="p-6 font-code-md text-code-md">
+                <div className="p-4 sm:p-6 font-code-sm sm:font-code-md text-code-sm sm:text-code-md overflow-x-auto">
                   {method.display}
                 </div>
               </div>

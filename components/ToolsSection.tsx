@@ -67,8 +67,8 @@ export default function ToolsSection() {
               </h4>
               <ul className="space-y-4 font-body-md text-body-md text-text-dim">
                 {tools.map((tool) => (
-                  <li key={tool.name} className="flex gap-4 group">
-                    <code className="text-secondary font-mono bg-terminal-black px-1.5 py-0.5 rounded w-44 shrink-0 group-hover:text-primary transition-colors duration-200">
+                  <li key={tool.name} className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 group">
+                    <code className="text-secondary font-mono bg-terminal-black px-1.5 py-0.5 rounded w-fit sm:w-44 shrink-0 group-hover:text-primary transition-colors duration-200">
                       {tool.name}
                     </code>
                     <span>{tool.desc}</span>

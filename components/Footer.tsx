@@ -25,7 +25,7 @@ export default function Footer() {
               performance.
             </p>
           </div>
-          <div className="flex gap-8 font-code-sm text-code-sm my-6 md:my-0">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8 font-code-sm text-code-sm my-6 md:my-0">
             {footerLinks.map((link) => (
               <a
                 key={link.label}
