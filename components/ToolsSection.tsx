@@ -69,10 +69,10 @@ export default function ToolsSection() {
               <h4 className="font-code-md text-code-md text-primary mb-6 flex items-center gap-2">
                 <span className="material-symbols-outlined">build</span> Core Tools
               </h4>
-              <ul className="space-y-4 font-body-md text-body-md text-text-dim">
+              <ul className="grid grid-cols-1 sm:grid-cols-[max-content_1fr] lg:grid-cols-1 xl:grid-cols-[max-content_1fr] gap-y-4 sm:gap-x-4 font-body-md text-body-md text-text-dim">
                 {tools.map((tool) => (
-                  <li key={tool.name} className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 group">
-                    <code className="text-secondary font-mono bg-terminal-black px-1.5 py-0.5 rounded w-fit sm:w-44 shrink-0 group-hover:text-primary transition-colors duration-200">
+                  <li key={tool.name} className="flex flex-col gap-1 sm:contents lg:flex lg:flex-col xl:contents group">
+                    <code className="text-secondary font-mono bg-terminal-black px-1.5 py-0.5 rounded w-fit max-w-full overflow-hidden text-ellipsis group-hover:text-primary transition-colors duration-200 self-start">
                       {tool.name}
                     </code>
                     <span>{tool.desc}</span>
