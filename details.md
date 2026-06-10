@@ -1,8 +1,8 @@
-# Aizen AI Agent 🚀  
+# Aizen AI Agent 🚀
 
 [![CI](https://github.com/irtaza302/aizen-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/irtaza302/aizen-agent/actions/workflows/ci.yml)
 
-A professional-grade AI coding assistant that runs directly in your terminal. Aizen reads your code, writes files with surgical precision, runs commands safely, and helps you build faster — all from a beautifully designed CLI.
+A helpful AI coding assistant you can use right in your terminal. Aizen reads your code, edits files safely, runs commands, and helps you get things done faster — all with a friendly command‑line interface.
 
 ## ✨ Features
 
@@ -14,21 +14,27 @@ A professional-grade AI coding assistant that runs directly in your terminal. Ai
 - **SQLite Session Persistence** — Session storage is powered by a SQLite database (`~/.aizen_sessions/aizen.db`), auto-migrating older JSON sessions.
 - **Project-Specific Rules** — Customizes agent behavior per repository by auto-loading `.aizen_rules` or `.cursorrules` from the current working directory.
 - **Smart Autocomplete** — `@`-mention files with Tab completion that respects `.gitignore` and supports directory traversal.
+- **Vision Support** — Attach images natively (e.g., `@mockup.png`) and Aizen will automatically encode them for Vision APIs (GPT-4o, Claude 3.5 Sonnet).
+- **Real-time Command Streaming** — Long-running shell commands stream their output live to the terminal instead of freezing with a spinner.
+- **Smart Context Pruning** — Automatically drops old, large file attachments first when hitting the context limit before resorting to LLM summarization.
 
 ### Tools
-Aizen has 9 built-in tools the AI can use:
+Aizen has 10 built-in tools the AI can use:
 
 | Tool | Description |
 |------|-------------|
 | `read_file` | Read file contents before making changes |
-| `write_file` | Create new files (with preview) |
-| `edit_file` | Surgical search-and-replace on existing files (with diff preview) |
+| `write_file` | Create new files or overwrite entirely (with preview) |
+| `replace_file_content` | Surgical search-and-replace on existing files (with line-bounds and diff preview) |
+| `multi_replace_file_content` | Perform multiple, non-adjacent surgical edits sequentially in a single pass |
 | `run_command` | Execute shell commands (supports background execution; safe commands auto-run, dangerous ones require approval) |
 | `check_background_task` | Check the status and read recent output of a command running in the background |
 | `kill_background_task` | Kill a running background task |
 | `list_directory` | List files/folders with sizes, respecting `.gitignore` |
 | `grep_search` | Search for text or regex patterns across the codebase |
 | `find_files` | Find files by glob pattern (e.g., `*.py`, `Dockerfile`) |
+| `get_file_outline` | Extract AST outline of a Python file (classes, methods, docstrings) without blowing up the context window |
+| `web_search` | Search the web for current information, docs, or API references |
 
 ### Commands
 
@@ -52,9 +58,11 @@ Aizen has 9 built-in tools the AI can use:
 | `/export [file]` | Export conversation to a Markdown file |
 | `/config` | View current configuration |
 | `/mcp` | View configured MCP servers and their connection status |
+| `/auto [task]` | Enter a fully autonomous agentic loop to execute a complex task step-by-step |
 
 ### Safety & UX
 - **Command Safety** — Read-only commands (`ls`, `cat`, `git status`, etc.) auto-execute. Destructive commands (`rm`, `sudo`, etc.) always require confirmation.
+- **Autonomous Limits** — The `/auto` mode enforces a strict 25-step execution limit to prevent infinite loops and runaway costs.
 - **`--yolo` Mode** — Auto-approve all operations for power users.
 - **Background Tasks** — Run builds, tests, or other long-running tasks asynchronously while continuing to interact with Aizen.
 - **File Backups** — Every file modification creates a backup. Use `/undo` to restore.

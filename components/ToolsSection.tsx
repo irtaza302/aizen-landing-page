@@ -5,14 +5,17 @@ import { FadeInOnScroll, StaggerContainer, StaggerItem } from "./AnimationWrappe
 
 const tools = [
   { name: "read_file", desc: "Read file contents before making changes." },
-  { name: "write_file", desc: "Create new files with preview and safety checks." },
-  { name: "edit_file", desc: "Surgical search-and-replace on existing files with diff." },
+  { name: "write_file", desc: "Create new files or overwrite entirely (with preview)." },
+  { name: "replace_file_content", desc: "Surgical search-and-replace on existing files with diff." },
+  { name: "multi_replace_file_content", desc: "Perform multiple, non-adjacent surgical edits sequentially." },
   { name: "run_command", desc: "Execute shell commands safely in foreground or background." },
   { name: "check_background_task", desc: "Check status and read output of background tasks." },
   { name: "kill_background_task", desc: "Kill any active background task." },
   { name: "list_directory", desc: "List files and folders, respecting .gitignore rules." },
   { name: "grep_search", desc: "Search for text or regex patterns across the codebase." },
   { name: "find_files", desc: "Find files by glob pattern (e.g. *.py, Dockerfile)." },
+  { name: "get_file_outline", desc: "Extract AST outline of a Python file." },
+  { name: "web_search", desc: "Search the web for current information, docs, or APIs." },
 ];
 
 const commands = [
@@ -34,6 +37,7 @@ const commands = [
   { name: "/export", desc: "Export conversation to Markdown." },
   { name: "/config", desc: "View current configuration." },
   { name: "/mcp", desc: "View configured MCP servers & status." },
+  { name: "/auto", desc: "Enter a fully autonomous agentic loop." },
 ];
 
 export default function ToolsSection() {
@@ -52,7 +56,7 @@ export default function ToolsSection() {
               Powerful Tools & Commands
             </h3>
             <p className="font-body-md text-body-md text-text-dim max-w-2xl mx-auto">
-              Aizen empowers your AI with 9 built-in tools and comprehensive
+              Aizen empowers your AI with 12 built-in tools and comprehensive
               slash commands to control the environment.
             </p>
           </div>
