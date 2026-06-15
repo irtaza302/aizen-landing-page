@@ -7,19 +7,24 @@ A helpful AI coding assistant you can use right in your terminal. Aizen reads yo
 ## ✨ Features
 
 ### Core
-- **Asynchronous Architecture** — Fully asynchronous operations leveraging `asyncio` and `AsyncOpenAI` for concurrent processing, parallel tool runs, and streaming.
+- **Asynchronous Architecture** — Fully asynchronous operations leveraging `asyncio` and `AsyncOpenAI` for concurrent processing, parallel tool runs, and streaming. Native retry logic ensures resilience against API blips.
+- **Stateful Terminal Session** — Commands execute in a persistent Bash shell, meaning environment variables (`export`) and directory changes (`cd`) persist naturally across tool calls.
+- **Persistent Memory** — AI that learns your preferences across sessions using local SQLite memory (`~/.aizen_memory.db`) and autonomously remembers architectural decisions using the `remember_fact` tool.
+- **Semantic Codebase Search** — Fast local RAG (Retrieval-Augmented Generation) using the `/search` command.
+- **One-Shot & Scripting** — Use the `-p` flag for fast CLI pipelines or install shell hooks with `--install-shell`.
+- **Custom Plugin System** — Easily extend Aizen by dropping Python scripts into `~/.aizen/plugins/` to register custom AI tools.
 - **Rich Markdown Rendering** — AI responses are rendered with full Markdown formatting (headers, code blocks, lists, bold/italic) via Rich's live display.
 - **Streaming with Live Preview** — Watch responses render in real-time inside a styled panel with an animated thinking spinner.
 - **Surgical File Editing** — The `edit_file` tool makes precise search-and-replace edits with color-coded diff previews, instead of rewriting entire files.
 - **SQLite Session Persistence** — Session storage is powered by a SQLite database (`~/.aizen_sessions/aizen.db`), auto-migrating older JSON sessions.
 - **Project-Specific Rules** — Customizes agent behavior per repository by auto-loading `.aizen_rules` or `.cursorrules` from the current working directory.
-- **Smart Autocomplete** — `@`-mention files with Tab completion that respects `.gitignore` and supports directory traversal.
+- **Smart Context & Autocomplete** — Auto-detects project languages/frameworks on startup. `@`-mention files with Tab completion that respects `.gitignore` and supports directory traversal.
 - **Vision Support** — Attach images natively (e.g., `@mockup.png`) and Aizen will automatically encode them for Vision APIs (GPT-4o, Claude 3.5 Sonnet).
 - **Real-time Command Streaming** — Long-running shell commands stream their output live to the terminal instead of freezing with a spinner.
-- **Smart Context Pruning** — Automatically drops old, large file attachments first when hitting the context limit before resorting to LLM summarization.
+- **Cost Guardrails** — Real‑time cost tracking, cross-session analytics (`/stats`), and strict budget caps (`--budget`).
 
 ### Tools
-Aizen has 10 built-in tools the AI can use:
+Aizen has built-in tools the AI can use:
 
 | Tool | Description |
 |------|-------------|
@@ -27,7 +32,7 @@ Aizen has 10 built-in tools the AI can use:
 | `write_file` | Create new files or overwrite entirely (with preview) |
 | `replace_file_content` | Surgical search-and-replace on existing files (with line-bounds and diff preview) |
 | `multi_replace_file_content` | Perform multiple, non-adjacent surgical edits sequentially in a single pass |
-| `run_command` | Execute shell commands (supports background execution; safe commands auto-run, dangerous ones require approval) |
+| `run_terminal_command` | Execute shell commands in a persistent stateful bash session (supports background isolated execution) |
 | `check_background_task` | Check the status and read recent output of a command running in the background |
 | `kill_background_task` | Kill a running background task |
 | `list_directory` | List files/folders with sizes, respecting `.gitignore` |
@@ -35,12 +40,14 @@ Aizen has 10 built-in tools the AI can use:
 | `find_files` | Find files by glob pattern (e.g., `*.py`, `Dockerfile`) |
 | `get_file_outline` | Extract AST outline of a Python file (classes, methods, docstrings) without blowing up the context window |
 | `web_search` | Search the web for current information, docs, or API references |
+| `remember_fact` | Store a fact in persistent memory (used autonomously by AI) |
 
 ### Commands
 
 | Command | Description |
 |---------|-------------|
 | `/help` | Show all available commands |
+| `/auto [task]` | Enter a fully autonomous agentic loop to execute a complex task step-by-step |
 | `/model [name]` | View or switch the active AI model (saves as default) |
 | `/clear` | Clear conversation history |
 | `/drop` | Drop attached files/URLs/commands from history to save tokens |
@@ -48,17 +55,25 @@ Aizen has 10 built-in tools the AI can use:
 | `/load [name]` | Load a previously saved conversation |
 | `/checkpoint [name]` | Save a conversation snapshot to memory |
 | `/restore [name]` | Restore a saved conversation checkpoint |
+| `/search [query]` | Perform semantic search across your codebase |
+| `/reindex [dir]` | Manually trigger indexing for local semantic search |
 | `/usage` | Show token usage, estimated session cost (USD), and statistics |
+| `/stats` | Cross-session usage tracked in SQLite. Run for a beautiful summary and sparkline chart |
+| `/budget [amt]` | Enforce session limits |
 | `/commit` | Auto-generate a commit message for staged/unstaged changes and commit them |
+| `/pr [title]` | Create a GitHub PR with an AI-generated description |
+| `/branch`, `/stash`, `/amend`, `/log` | Full AI-assisted git workflow |
 | `/diff` | Show all uncommitted changes (staged, unstaged, untracked) |
-| `/compact` | Summarize older messages using AI (fallback to text-summarization) to save tokens |
+| `/compact` | Summarize older messages using AI to save tokens |
+| `/remember <fact>` | Store a fact in persistent memory |
+| `/memory` | View all stored memories |
+| `/forget <id>` | Remove a specific memory |
 | `/undo` | Undo the last file modification |
 | `/retry` | Retry the last message |
 | `/copy` | Copy last AI response to clipboard |
 | `/export [file]` | Export conversation to a Markdown file |
 | `/config` | View current configuration |
 | `/mcp` | View configured MCP servers and their connection status |
-| `/auto [task]` | Enter a fully autonomous agentic loop to execute a complex task step-by-step |
 
 ### Safety & UX
 - **Command Safety** — Read-only commands (`ls`, `cat`, `git status`, etc.) auto-execute. Destructive commands (`rm`, `sudo`, etc.) always require confirmation.
@@ -67,8 +82,8 @@ Aizen has 10 built-in tools the AI can use:
 - **Background Tasks** — Run builds, tests, or other long-running tasks asynchronously while continuing to interact with Aizen.
 - **File Backups** — Every file modification creates a backup. Use `/undo` to restore.
 - **Multi-line Input** — End a line with `\` to continue on the next line.
-- **Session Persistence** — Conversations auto-save on exit to SQLite. Use `/save` and `/load` to manage.
-- **Cost Tracking & Token Usage** — Live tracking of input/output tokens, session duration, and estimated session cost in USD.
+- **Cost Tracking & Token Usage** — Live tracking of input/output tokens, session duration, and estimated session cost in USD. Pulls live pricing from OpenRouter cache.
+- **Multi-Model Routing** — Override the global model inline by typing `@claude-3.5-sonnet <prompt>`. Supports Anthropic, Google, OpenAI, DeepSeek, and Meta models.
 - **Structured Logging** — Rotated file logging at `~/.aizen_logs/aizen.log` plus verbose console debugging logs via `--verbose`.
 - **Graceful Error Recovery** — Helpful hints for common API errors (invalid key, rate limits, timeouts).
 
@@ -112,6 +127,11 @@ python aizen.py
 ```bash
 aizen
 ```
+Or for a single non-interactive response:
+```bash
+aizen -p "fix this"
+cat log.txt | aizen -p "summarize"
+```
 
 On first launch, you'll be prompted for your [OpenRouter API key](https://openrouter.ai/keys). It's saved securely to `~/.aizen_config.json`.
 
@@ -120,6 +140,9 @@ On first launch, you'll be prompted for your [OpenRouter API key](https://openro
 | Flag | Description |
 |------|-------------|
 | `--version` | Show version |
+| `-p`, `--prompt` | Run a single prompt (non-interactive one-shot mode) |
+| `--install-shell` | Install `ai` shell alias |
+| `--budget <amt>` | Enforce strict session spending limit in USD |
 | `--model <name>` | Override the default model for this session |
 | `--reset-key` | Clear and re-enter your API key |
 | `--set-base-url <url>` | Set custom API base URL (e.g., `http://localhost:11434/v1` for Ollama) |
@@ -165,6 +188,14 @@ Aizen stores its config in `~/.aizen_config.json`:
   "DEFAULT_MODEL": "anthropic/claude-sonnet-4"
 }
 ```
+
+### Custom Plugin System
+
+Aizen supports a dead-simple custom Python plugin system! If you want to give the AI access to internal company APIs, smart home controls, or custom scripts, you can easily create custom tools.
+
+Just drop a `.py` file into `~/.aizen/plugins/` that exposes a tool schema and an execution function, and Aizen will automatically load it on startup. 
+
+See the full guide in [PLUGINS.md](PLUGINS.md) for a quick example!
 
 ### Model Context Protocol (MCP) Support
 

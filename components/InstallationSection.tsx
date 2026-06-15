@@ -16,13 +16,11 @@ const installMethods = [
   },
   {
     key: "npm",
-    label: "NODE.JS (NPM / PNPM)",
-    command: "npm install -g aizen-ai-cli\n# or\npnpm install -g aizen-ai-cli",
+    label: "NODE.JS (NPM)",
+    command: "npm install -g aizen-ai-cli",
     display: (
       <>
-        <span className="text-primary">$</span> npm install -g aizen-ai-cli<br />
-        <span className="text-text-dim text-xs mt-2 mb-2 block"># or</span>
-        <span className="text-primary">$</span> pnpm install -g aizen-ai-cli
+        <span className="text-primary">$</span> npm install -g aizen-ai-cli
       </>
     ),
   },

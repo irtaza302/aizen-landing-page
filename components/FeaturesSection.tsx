@@ -392,6 +392,155 @@ export default function FeaturesSection() {
               </div>
             </div>
           </StaggerItem>
+
+          {/* Feature 13: Stateful Terminal Session */}
+          <StaggerItem className="md:col-span-4">
+            <div className="glass-card gradient-border p-8 flex flex-col gap-6 rounded-lg group h-full">
+              <div className="flex-1">
+                <span
+                  className="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  terminal
+                </span>
+                <h4 className="font-headline-md text-headline-md text-on-surface mb-3">
+                  Stateful Terminal
+                </h4>
+                <p className="font-body-md text-body-md text-text-dim">
+                  Commands execute in a persistent Bash shell. Environment variables and directory changes persist naturally across all tool calls.
+                </p>
+              </div>
+              <div className="w-full h-28 bg-terminal-black border border-border-muted relative flex flex-col items-start justify-center rounded-lg overflow-hidden p-3 shrink-0">
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-primary shadow-[0_0_10px_rgba(255,0,255,1)]"></div>
+                <div className="font-code-sm text-primary text-[10px] mb-2 uppercase w-full text-center">BASH SESSION</div>
+                <div className="w-full font-mono text-[9px] text-text-dim bg-surface/50 p-2 rounded border border-border-muted flex-1">
+                  <span className="text-primary">$</span> export API_KEY=xxx<br/>
+                  <span className="text-primary">$</span> cd src/<br/>
+                  <span className="text-primary">$</span> npm start<br/>
+                  <span className="text-green-400">Ready on port 3000</span>
+                </div>
+              </div>
+            </div>
+          </StaggerItem>
+
+          {/* Feature 14: Persistent Memory */}
+          <StaggerItem className="md:col-span-4">
+            <div className="glass-card gradient-border p-8 flex flex-col gap-6 rounded-lg group h-full">
+              <div className="flex-1">
+                <span
+                  className="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  memory
+                </span>
+                <h4 className="font-headline-md text-headline-md text-on-surface mb-3">
+                  Persistent Memory
+                </h4>
+                <p className="font-body-md text-body-md text-text-dim">
+                  Aizen learns your preferences across sessions using local SQLite memory and autonomously remembers architectural decisions.
+                </p>
+              </div>
+              <div className="w-full h-28 bg-terminal-black border border-border-muted relative flex flex-col items-center justify-center rounded-lg overflow-hidden p-3 shrink-0">
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-secondary shadow-[0_0_10px_rgba(0,219,233,1)]"></div>
+                <div className="font-code-sm text-secondary text-[10px] mb-1">FACT STORED</div>
+                <div className="w-full font-mono text-[9px] text-on-surface bg-surface px-2 py-1.5 rounded border border-border-muted mt-1 break-words">
+                  "User prefers async/await over promises in TypeScript."
+                </div>
+              </div>
+            </div>
+          </StaggerItem>
+
+          {/* Feature 15: Semantic Codebase Search */}
+          <StaggerItem className="md:col-span-4">
+            <div className="glass-card gradient-border p-8 flex flex-col gap-6 rounded-lg group h-full">
+              <div className="flex-1">
+                <span
+                  className="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  manage_search
+                </span>
+                <h4 className="font-headline-md text-headline-md text-on-surface mb-3">
+                  Semantic Search
+                </h4>
+                <p className="font-body-md text-body-md text-text-dim">
+                  Fast local RAG (Retrieval-Augmented Generation) codebase search using the `/search` command to instantly find relevant code snippets.
+                </p>
+              </div>
+              <div className="w-full h-28 bg-terminal-black border border-border-muted relative flex flex-col justify-center rounded-lg overflow-hidden p-3 shrink-0 mt-auto">
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-tertiary shadow-[0_0_10px_rgba(157,0,255,1)]"></div>
+                <div className="font-code-sm text-tertiary text-[10px] mb-2 uppercase text-center">LOCAL RAG</div>
+                <div className="w-full font-mono text-[9px]">
+                  <div className="text-on-surface bg-surface border border-border-muted px-2 py-1 rounded mb-1">
+                    <span className="text-tertiary">/search</span> payment gateway
+                  </div>
+                  <div className="text-text-dim/80 px-2 py-0.5 truncate">→ src/stripe.ts (98% match)</div>
+                  <div className="text-text-dim/60 px-2 py-0.5 truncate">→ src/billing.ts (85% match)</div>
+                </div>
+              </div>
+            </div>
+          </StaggerItem>
+
+          {/* Feature 16: Custom Plugin System */}
+          <StaggerItem className="md:col-span-6">
+            <div className="glass-card gradient-border p-8 flex flex-col sm:flex-row items-start sm:items-center gap-8 overflow-hidden rounded-lg group h-full">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <span
+                    className="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform duration-300"
+                    style={{ fontVariationSettings: "'FILL' 1" }}
+                  >
+                    extension
+                  </span>
+                  <h4 className="font-headline-md text-headline-md text-on-surface">
+                    Custom Plugin System
+                  </h4>
+                </div>
+                <p className="font-body-md text-body-md text-text-dim">
+                  Easily extend Aizen by dropping Python scripts into <code className="text-primary font-mono text-sm bg-terminal-black px-1.5 py-0.5 rounded">~/.aizen/plugins/</code> to register custom AI tools and integrations.
+                </p>
+              </div>
+              <div className="w-full sm:w-40 h-28 bg-terminal-black border border-border-muted relative flex flex-col items-center justify-center rounded-lg overflow-hidden p-3 shrink-0">
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-primary shadow-[0_0_10px_rgba(255,0,255,1)]"></div>
+                <div className="font-code-sm text-primary text-[10px] mb-1">PLUGINS DIRECTORY</div>
+                <div className="flex flex-col gap-1 w-full mt-1">
+                  <div className="font-mono text-[10px] text-text-dim bg-surface/50 w-full text-center py-1 rounded border border-border-muted">github_tool.py</div>
+                  <div className="font-mono text-[10px] text-text-dim bg-surface/50 w-full text-center py-1 rounded border border-border-muted">jira_tool.py</div>
+                </div>
+              </div>
+            </div>
+          </StaggerItem>
+
+          {/* Feature 17: Real-time Command Streaming */}
+          <StaggerItem className="md:col-span-6">
+            <div className="glass-card gradient-border p-8 flex flex-col sm:flex-row items-start sm:items-center gap-8 overflow-hidden rounded-lg group h-full">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <span
+                    className="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform duration-300"
+                    style={{ fontVariationSettings: "'FILL' 1" }}
+                  >
+                    stream
+                  </span>
+                  <h4 className="font-headline-md text-headline-md text-on-surface">
+                    Real-time Streaming
+                  </h4>
+                </div>
+                <p className="font-body-md text-body-md text-text-dim">
+                  Long-running shell commands stream their output live to the terminal instead of freezing with a spinner, so you always know what's happening.
+                </p>
+              </div>
+              <div className="w-full sm:w-40 h-28 bg-terminal-black border border-border-muted relative flex flex-col items-center justify-center rounded-lg overflow-hidden p-3 shrink-0">
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-secondary shadow-[0_0_10px_rgba(0,219,233,1)]"></div>
+                <div className="font-code-sm text-secondary text-[10px] mb-1 uppercase">LIVE LOGS</div>
+                <div className="w-full font-mono text-[9px] text-text-dim bg-surface/30 px-2 py-1.5 rounded border border-border-muted mt-1 h-full overflow-hidden flex flex-col justify-end">
+                  <div>Building module...</div>
+                  <div>Optimizing assets...</div>
+                  <div className="text-secondary flex items-center gap-1"><span className="w-1 h-1 bg-secondary rounded-full animate-pulse"></span> webpack compiling</div>
+                </div>
+              </div>
+            </div>
+          </StaggerItem>
         </StaggerContainer>
       </div>
     </section>
