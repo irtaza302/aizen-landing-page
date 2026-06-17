@@ -14,7 +14,10 @@ const tools = [
   { name: "list_directory", desc: "List files and folders, respecting .gitignore rules." },
   { name: "grep_search", desc: "Search for text or regex patterns across the codebase." },
   { name: "find_files", desc: "Find files by glob pattern (e.g. *.py, Dockerfile)." },
-  { name: "get_file_outline", desc: "Extract AST outline of a Python file." },
+  { name: "get_file_outline", desc: "Extract AST outline using tree-sitter across multiple languages." },
+  { name: "replace_function", desc: "Safely replace an entire function/class using AST bounds." },
+  { name: "delegate_task", desc: "Delegate sub-tasks to isolated background instances of Aizen." },
+  { name: "browser_*", desc: "Suite of Playwright tools (goto, get_content, click, etc)." },
   { name: "web_search", desc: "Search the web for current information, docs, or APIs." },
   { name: "remember_fact", desc: "Store a fact in persistent memory (used autonomously)." },
 ];
@@ -36,7 +39,7 @@ const commands = [
   { name: "/budget [amt]", desc: "Enforce session spending limits." },
   { name: "/commit", desc: "Auto-generate message and commit." },
   { name: "/pr [title]", desc: "Create a GitHub PR with an AI description." },
-  { name: "/branch, /log", desc: "Full AI-assisted git workflow." },
+  { name: "/branch, /stash, /amend, /log", desc: "Full AI-assisted git workflow." },
   { name: "/diff", desc: "Show all uncommitted changes." },
   { name: "/compact", desc: "Summarize old messages to save tokens." },
   { name: "/remember <fact>", desc: "Store a fact in persistent memory." },
@@ -66,7 +69,7 @@ export default function ToolsSection() {
               Powerful Tools & Commands
             </h3>
             <p className="font-body-md text-body-md text-text-dim max-w-2xl mx-auto">
-              Aizen empowers your AI with 12 built-in tools and comprehensive
+              Aizen empowers your AI with 16 built-in tools and comprehensive
               slash commands to control the environment.
             </p>
           </div>
