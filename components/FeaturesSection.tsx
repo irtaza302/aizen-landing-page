@@ -541,6 +541,92 @@ export default function FeaturesSection() {
               </div>
             </div>
           </StaggerItem>
+
+          {/* Feature 18: Universal AST Parsing */}
+          <StaggerItem className="md:col-span-4">
+            <div className="glass-card gradient-border p-8 flex flex-col gap-6 rounded-lg group h-full">
+              <div className="flex-1">
+                <span
+                  className="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  account_tree
+                </span>
+                <h4 className="font-headline-md text-headline-md text-on-surface mb-3">
+                  Universal AST Parsing
+                </h4>
+                <p className="font-body-md text-body-md text-text-dim">
+                  Uses tree-sitter for flawless codebase outlines and surgical syntax-tree-level edits across Python, JS, TS, JSX, and TSX.
+                </p>
+              </div>
+              <div className="w-full h-28 bg-terminal-black border border-border-muted relative flex flex-col items-center justify-center rounded-lg overflow-hidden p-3 shrink-0">
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-primary shadow-[0_0_10px_rgba(255,0,255,1)]"></div>
+                <div className="font-code-sm text-primary text-[10px] mb-2 uppercase text-center">TREE-SITTER</div>
+                <div className="w-full font-mono text-[9px] text-text-dim bg-surface/50 p-2 rounded border border-border-muted flex-1 flex flex-col justify-center">
+                  <div className="text-secondary">FunctionDeclaration</div>
+                  <div className="pl-2">Identifier: <span className="text-on-surface">main</span></div>
+                  <div className="pl-2 text-primary">Block</div>
+                </div>
+              </div>
+            </div>
+          </StaggerItem>
+
+          {/* Feature 19: Headless Browser Automation */}
+          <StaggerItem className="md:col-span-4">
+            <div className="glass-card gradient-border p-8 flex flex-col gap-6 rounded-lg group h-full">
+              <div className="flex-1">
+                <span
+                  className="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  web
+                </span>
+                <h4 className="font-headline-md text-headline-md text-on-surface mb-3">
+                  Headless Browser
+                </h4>
+                <p className="font-body-md text-body-md text-text-dim">
+                  Built-in Playwright integration allows Aizen to navigate web pages, evaluate JS, click elements, and take screenshots for visual QA.
+                </p>
+              </div>
+              <div className="w-full h-28 bg-terminal-black border border-border-muted relative flex flex-col items-center justify-center rounded-lg overflow-hidden p-3 shrink-0">
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-secondary shadow-[0_0_10px_rgba(0,219,233,1)]"></div>
+                <div className="font-code-sm text-secondary text-[10px] mb-2 uppercase text-center">PLAYWRIGHT</div>
+                <div className="w-full font-mono text-[9px] text-text-dim bg-surface/50 p-2 rounded border border-border-muted flex-1 flex flex-col justify-center gap-1">
+                   <div><span className="text-secondary">browser_goto</span>("https...")</div>
+                   <div><span className="text-secondary">browser_screenshot</span>()</div>
+                   <div className="text-green-400">Captured UI state</div>
+                </div>
+              </div>
+            </div>
+          </StaggerItem>
+
+          {/* Feature 20: Multi-Agent Orchestration */}
+          <StaggerItem className="md:col-span-4">
+            <div className="glass-card gradient-border p-8 flex flex-col gap-6 rounded-lg group h-full">
+              <div className="flex-1">
+                <span
+                  className="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform duration-300"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  groups
+                </span>
+                <h4 className="font-headline-md text-headline-md text-on-surface mb-3">
+                  Multi-Agent Sync
+                </h4>
+                <p className="font-body-md text-body-md text-text-dim">
+                  Aizen acts as a Manager Agent, using `delegate_task` to spawn background sub-agents and execute complex tasks concurrently.
+                </p>
+              </div>
+              <div className="w-full h-28 bg-terminal-black border border-border-muted relative flex flex-col items-center justify-center rounded-lg overflow-hidden p-3 shrink-0">
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-tertiary shadow-[0_0_10px_rgba(157,0,255,1)]"></div>
+                <div className="font-code-sm text-tertiary text-[10px] mb-2 uppercase text-center">SUB-AGENTS</div>
+                <div className="w-full font-mono text-[9px] text-text-dim flex flex-col justify-center gap-2 flex-1">
+                  <div className="flex justify-between items-center bg-surface px-2 py-1 rounded border border-border-muted"><span>Agent 1: DB</span> <span className="text-secondary">Done</span></div>
+                  <div className="flex justify-between items-center bg-surface px-2 py-1 rounded border border-border-muted"><span>Agent 2: UI</span> <span className="text-primary animate-pulse">Running</span></div>
+                </div>
+              </div>
+            </div>
+          </StaggerItem>
         </StaggerContainer>
       </div>
     </section>
